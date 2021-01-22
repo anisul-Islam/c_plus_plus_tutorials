@@ -10,3 +10,6 @@
 4. First C++ Program and its various parts
 5. Escape Sequences
 6. Types of comment
+7. keyword, variable and data-Types
+8. String variables
+9. How to get user Input
