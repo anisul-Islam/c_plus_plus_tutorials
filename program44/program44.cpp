@@ -9,6 +9,7 @@ class Student
         //variables
         int id;
         double gpa;
+        
         //functions
         void display()
         {
@@ -34,7 +35,7 @@ int main()
 {
 
     Student();
-    
+
     cout << "ID" << "  " << "GPA" << endl;
     cout << "-----------"<< endl;
 
