@@ -13,3 +13,9 @@
 7. keyword, variable and data-Types
 8. String variables
 9. How to get user Input
+10. how to run a class from a different file
+    - create the header file and include in main.cpp
+    - header file have only prototype t
+    - body will include the header file and use the functions 
+    - run - g++ main.cpp .\Message\Message.cpp
+    - then .\a.exe
