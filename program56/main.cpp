@@ -2,8 +2,8 @@
 #include <conio.h>
 using namespace std;
 
-template <class myTemplate>
-myTemplate add (myTemplate a, myTemplate b)
+template <class myTemplate, class myTemplate2>
+myTemplate add (myTemplate a, myTemplate2 b)
 {
     return a+b;
 }
@@ -11,7 +11,7 @@ myTemplate add (myTemplate a, myTemplate b)
 int main()
 {
     cout << add(10,20) << endl;
-    cout << add(10.5,20.5) << endl;
+    cout << add(10.5,20) << endl;
 
     getch();
 }
