@@ -6,7 +6,8 @@ int main()
 {
   // Linear search using array and vector
   // sorted and unsorted
-  array<int, 5> numbers = {20, 10, 55, 50, 40};
+  array<int, 5> numbers1 = {20, 10, 55, 50, 40};
+  vector<int> numbers = {20, 10, 55, 50, 40};
   int target = 40;
   int position = -1;
 
