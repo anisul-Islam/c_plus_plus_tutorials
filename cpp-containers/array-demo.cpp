@@ -1,7 +1,18 @@
 #include <iostream>
+#include <algorithm>
+#include <numeric>
 #include <array>
 
 using namespace std;
+
+void printArray(const array<int, 5> &arr)
+{
+  for (int value : arr)
+  {
+    cout << value << " ";
+  }
+  cout << "\n";
+}
 
 int main()
 {
@@ -9,6 +20,8 @@ int main()
   int numbers[] = {10, 20, 30, 40, 50};
   array<int, 5> a = {40, 20, 80, 10, 50};
   array<int, 5> items = {40, 20, 80, 10, 50};
+  array<int, 5> originalArray = {40, 90, 20, 30, 56};
+  array<int, 5> swapped_array;
 
   // read elements
   cout << numbers[0] << "\n";
@@ -33,11 +46,7 @@ int main()
 
   cout << "Printing with Range based for loop: ";
   // 10, 20, 30, 40, 50
-  for (int value : a)
-  {
-    cout << value << " ";
-  }
-  cout << "\n";
+  printArray(a);
 
   // front(), back(),
   cout << "Printing first and last item: " << a.front() << " " << a.back() << endl;
@@ -55,35 +64,25 @@ int main()
   // after sorting
   sort(a.begin(), a.end());
   cout << "Sorted: ";
-  for (int value : a)
-  {
-    cout << value << " ";
-  }
-  cout << endl;
+  printArray(a);
 
   //  a.fill(0)
   a.fill(0);
   cout << "After fill: ";
-  for (int value : a)
-  {
-    cout << value << " ";
-  }
-  cout << endl;
+  printArray(a);
 
   a[4] = 20;
   a.at(4) = 30;
   cout << a[4] << endl;
 
-  // Linear search
-  int target = 40;
-  for (int i = 0; i < items.size(); i++)
-  {
-    if (target == items.at(i))
-    {
-      cout << "Item found at " << i << endl;
-      break;
-    }
-  }
+  // swapping the array
+  swapped_array.swap(originalArray);
+  cout << "Printing the array after swapping: " << endl;
+  printArray(swapped_array);
+
+  // finding the total
+  int sum = accumulate(swapped_array.begin(), swapped_array.end(), 0);
+  cout << "Sum of the original array: " << sum << endl;
 
   return 0;
 }
@@ -96,3 +95,7 @@ int main()
 // array.front(), array.back()
 // sort(array.begin(), array.end())
 // array.empty(), array.fill()
+// swap => a1.swap(a2)
+// finding the total => accumulate(originalArray.begin(), originalArray.end(), 0);
+// passing array to a function
+// searching => Linear, Binary Search
