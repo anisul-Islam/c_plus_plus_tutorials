@@ -1,1 +1,22 @@
-*.exe
+
+# macOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS debug symbols
+*.dSYM/
+
+# Compiled C/C++ executables and object files
+*.o
+*.a
+*.dylib
+*.so
+*.out
+
+# CMake build files
+build/
+cmake-build-*/
+
+# VS Code workspace settings (optional)
+.vscode/
