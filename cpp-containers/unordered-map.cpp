@@ -33,9 +33,14 @@ int main()
   // marks[12] = 95;
   // cout << "After Update: Student Roll number with 12 got " << marks[12] << " Marks." << endl;
 
-  // // key exist => count(k), find(k), contains(k)
-  // cout << "Before deletion key 12 is : ";
+  // key exist=> count(k) c++11, find(k) c++11, contains(k) c++20
+  // yes/no
+  // true/false
+  // 1/0
+  cout << "Before deletion key 12 is : ";
   // if (marks.count(12))
+  // if (marks.contains(12))
+  // if (marks.contains(12))
   // {
   //   cout << "Found" << endl;
   // }
@@ -43,6 +48,16 @@ int main()
   // {
   //   cout << "Not Found" << endl;
   // }
+
+  auto it = marks.find(12);
+  if (it != marks.end())
+  {
+    cout << "Found value is " << it->second << endl;
+  }
+  else
+  {
+    cout << "Key Not Found." << endl;
+  }
 
   // // Deletion
   // marks.erase(12);
