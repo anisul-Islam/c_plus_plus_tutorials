@@ -78,6 +78,7 @@ Six small tasks in one file that practise everything from Module 1: `cout`, `end
 **Screenshot**
 
 ![Assignment 1 output](screenshots/module-01-assignment.png)
+![Assignment 2 output](screenshots/module-02-assignment.png)
 
 <a id="m01-project"></a>
 
