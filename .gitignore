@@ -20,3 +20,5 @@ cmake-build-*/
 
 # VS Code workspace settings (optional)
 .vscode/
+
+assignments/
