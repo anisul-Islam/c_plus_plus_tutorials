@@ -320,27 +320,50 @@ Seven tasks on arithmetic, formatting, assignment, increment, relational, logica
 
 <a id="m03-project"></a>
 
-### Project 3: Temperature Converter
+### Project 3: Shop bill and change calculator
 
-**Goal:** Read a menu choice and a temperature, then convert it between Celsius, Fahrenheit and Kelvin. Everything is written inside `main` with variables, arithmetic, formatting and the ternary operator.
+**Goal:** Read a product's price, quantity, discount and the amount paid. Print a bill with discount, 5% VAT and total, break the change into taka notes, and show a few yes/no facts. No `if`, no ternary operator and no logical operators.
 
 **Steps**
 
-1. The formulas
-2. Watch integer division
-3. A small menu
-4. Feedback with ternary
+1. Read the input
+2. Work out the bill
+3. Print with two decimals
+4. Break the change into notes
+5. Yes/no facts
+6. Increment for a bonus item
 
 **What you will practise**
 
-- Convert through one base unit (Celsius)
-- Use `double` to avoid integer division
-- The ternary operator picks between two values
-- `fixed` and `setprecision(2)` for neat output
+- `/` and `%` split an amount into notes
+- `%=` updates the remaining amount
+- Use `100.0` to avoid integer division
+- Relational operators give `true` or `false`
+- `fixed` and `setprecision(2)` for money
+
+**Sample run**
+
+    Unit price: 120.50
+    Quantity: 12
+    Discount %: 10
+    Amount paid: 2000
+
+    ----------- BILL -----------
+    Subtotal:   1446.00
+    Discount:   -144.60
+    VAT 5%:     65.07
+    Total:      1366.47
+    Payable:    1366 taka
+    Change:     634 taka
+    Notes: 500x1 100x1 50x0 20x1 10x1 5x0 2x2 1x0
+    Items in bag (with 1 free sample): 13
+    Paid enough: true
+    Free delivery (1000 or more): true
+    Bulk order (10 or more): true
 
 **Screenshot**
 
-<!-- Add the image to screenshots/module-03-project.png, then delete these comment markers:
+<!-- Add the image to screenshots/module-03-assignment.png, then delete these comment markers:
 ![Project 3 output](screenshots/module-03-project.png)
 -->
 
