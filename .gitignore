@@ -1,3 +1,5 @@
+assignments/
+practice/
 
 # macOS files
 .DS_Store
@@ -21,5 +23,3 @@ cmake-build-*/
 # VS Code workspace settings (optional)
 .vscode/
 
-assignments/
-practice/
