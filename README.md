@@ -78,7 +78,6 @@ Six small tasks in one file that practise everything from Module 1: `cout`, `end
 **Screenshot**
 
 ![Assignment 1 output](screenshots/module-01-assignment.png)
-![Assignment 2 output](screenshots/module-02-assignment.png)
 
 <a id="m01-project"></a>
 
@@ -144,9 +143,7 @@ Six tasks on variables, data types, `cin`, `getline`, `sizeof`, `auto` and overf
 
 **Screenshot**
 
-<!-- Add the image to screenshots/module-02-assignment.png, then delete these comment markers:
 ![Assignment 2 output](screenshots/module-02-assignment.png)
--->
 
 <a id="m02-project"></a>
 
@@ -325,7 +322,7 @@ Seven tasks on arithmetic, formatting, assignment, increment, relational, logica
 
 ### Project 3: Temperature Converter
 
-**Goal:** A menu-driven converter between Celsius, Fahrenheit and Kelvin.
+**Goal:** Read a menu choice and a temperature, then convert it between Celsius, Fahrenheit and Kelvin. Everything is written inside `main` with variables, arithmetic, formatting and the ternary operator.
 
 **Steps**
 
@@ -336,9 +333,10 @@ Seven tasks on arithmetic, formatting, assignment, increment, relational, logica
 
 **What you will practise**
 
-- Convert through one base unit to keep code small
-- Use doubles to avoid integer division
-- Functions make formulas reusable
+- Convert through one base unit (Celsius)
+- Use `double` to avoid integer division
+- The ternary operator picks between two values
+- `fixed` and `setprecision(2)` for neat output
 
 **Screenshot**
 
