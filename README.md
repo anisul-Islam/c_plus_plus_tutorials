@@ -30,7 +30,7 @@ Work through them in order: each one uses only what you have learned up to that 
 | [**1.** Introduction and Setup](#m01-module)                 | [Output and escape sequences](#m01-assignment)     | [Print a formatted profile card](#m01-project)                                                                                                                                                                                                        |
 | [**2.** Variables, Data Types and Input/Output](#m02-module) | [Variables, data types and input](#m02-assignment) | [Student registration card](#m02-project)                                                                                                                                                                                                             |
 | [**3.** Operators](#m03-module)                              | [Operators](#m03-assignment)                       | [Shop bill and change calculator](#m03-project)                                                                                                                                                                                                       |
-| [**4.** Conditional Statements](#m04-module)                 | [Decisions with if and switch](#m04-assignment)    | [Menu-driven calculator](#m04-project)                                                                                                                                                                                                                |
+| [**4.** Conditional Statements](#m04-module)                 | [Decisions with if and switch](#m04-assignment)    | [Ticket Price Checker](#m04-project)                                                                                                                                                                                                                  |
 | [**5.** Loops](#m05-module)                                  | [Loops](#m05-assignment)                           | [Pattern printer menu](#m05-project)                                                                                                                                                                                                                  |
 | [**6.** Arrays and Strings](#m06-module)                     | [Arrays and strings](#m06-assignment)              | [Student marks application](#m06-project)                                                                                                                                                                                                             |
 | [**7.** Functions](#m07-module)                              | [Functions](#m07-assignment)                       | [Guessing Game](#m07-project)                                                                                                                                                                                                                         |
@@ -405,31 +405,173 @@ Six classic decision problems that use if, else if, nested if and `switch`. Each
 ![Assignment 4 output](screenshots/module-04-assignment.png)
 -->
 
+---
+
 <a id="m04-project"></a>
 
-### Project 4: Menu-driven calculator
+### Project 4 : Ticket Price Checker
 
-**Goal:** Use `switch` for the menu and if-else to check bad input such as division by zero.
+**Course:** C++ Programming, Module 4 (Conditional Statements)
+**Level:** Beginner
+**Time:** 45 to 60 minutes
 
-**Steps**
+Read a viewer's age, the day of the week and a seat type, then print a cinema ticket with the right price.
 
-1. The loop
-2. `switch` on the choice
-3. Guard against bad input
-4. `do-while` fits menus
+This project uses only what you learned in Modules 1 to 4. You don't need loops, functions or arrays.
 
-**What you will practise**
+#### What you will practise for Ticket Price Project
 
-- `do-while` for menus
-- `switch` for the operation
-- Check division by zero
-- break leaves the loop on exit
+- `switch` with `case`, `break` and `default`
+- Fallthrough: stacking `case 'r':` and `case 'R':` so both letters work
+- An `if`, `else if`, `else` ladder
+- Nested `if`
+- `if` with an initializer (C++17)
+- Checking input before using it
 
-**Screenshot**
+#### The task for Ticket Price Project
 
-<!-- Add the image to screenshots/module-04-project.png, then delete these comment markers:
-![Project 4 output](screenshots/module-04-project.png)
--->
+Write a program that:
+
+1. Asks for the viewer's age, the day (1 = Monday ... 7 = Sunday) and a seat type (`R`, `P` or `V`).
+2. Stops with an error message if the age is below 0 or above 120, or the day is not 1 to 7.
+3. Finds the seat price with `switch`. Lowercase letters must work too.
+
+   | Seat    | Letter | Price    |
+   | ------- | ------ | -------- |
+   | Regular | `R`    | 300 taka |
+   | Premium | `P`    | 450 taka |
+   | VIP     | `V`    | 650 taka |
+
+   Any other letter prints `Invalid seat type`.
+
+4. Finds the age group and discount with an else-if ladder.
+
+   | Age group      | Ages     | Discount |
+   | -------------- | -------- | -------- |
+   | Baby (under 3) | 0 to 2   | 100%     |
+   | Child          | 3 to 12  | 50%      |
+   | Adult          | 13 to 59 | 0%       |
+   | Senior         | 60+      | 30%      |
+
+5. Turns the day number into a day name with `switch`.
+6. Uses nested `if` for two extra rules:
+   - On Saturday and Sunday, everyone except babies pays a 50 taka weekend fee.
+   - On weekdays, seniors get an extra 10% off.
+7. Works out the discount and total, then prints the ticket.
+8. Uses an `if` with an initializer to print how much the viewer saved.
+
+#### Sample run for Ticket Price Project
+
+What the user types is shown after each prompt.
+
+```
+Age: 65
+Day (1 = Mon ... 7 = Sun): 3
+Seat (R = Regular, P = Premium, V = VIP): p
+
++--------------------------------+
+  CINEMA TICKET
++--------------------------------+
+  Day:         Wednesday
+  Seat:        Premium (450 taka)
+  Age group:   Senior
+  Discount:    40% (-180 taka)
+  Weekend fee: 0 taka
+  Total:       270 taka
++--------------------------------+
+You save 180 taka today.
+```
+
+Test it with these as well:
+
+| Age | Day | Seat | Total    | Last line                             |
+| --- | --- | ---- | -------- | ------------------------------------- |
+| 8   | 6   | `V`  | 375 taka | `You save 325 taka today.`            |
+| 30  | 7   | `r`  | 350 taka | `Full price ticket. Enjoy the movie!` |
+| 2   | 6   | `v`  | 0 taka   | `You save 650 taka today.`            |
+| 60  | 6   | `P`  | 365 taka | `You save 135 taka today.`            |
+| 25  | 2   | `x`  | none     | `Invalid seat type`                   |
+
+#### Starter code for Ticket Price Project
+
+Copy this into `main.cpp` and fill in each `TODO`.
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int age, day;
+    char seat;
+
+    // TODO 1: read age, day and seat with prompts
+
+    // TODO 2: if the age or day is invalid, print a message and return 1
+
+    // TODO 3: switch on seat to set seatPrice and seatName
+    //         (stack case 'r': and case 'R': together; use default for bad letters)
+
+    // TODO 4: else-if ladder to set group and discountPercent
+
+    // TODO 5: switch on day to set dayName
+
+    // TODO 6: nested if
+    //         weekend (day 6 or 7): weekendFee = 50, but not for babies
+    //         weekday: seniors get discountPercent + 10
+
+    // TODO 7: discount = seatPrice * discountPercent / 100
+    //         total = seatPrice - discount + weekendFee
+
+    // TODO 8: print the ticket like the sample output
+
+    // TODO 9: if (int saved = ...; saved > 0) print "You save ..."
+    //         else print "Full price ticket. Enjoy the movie!"
+
+    return 0;
+}
+```
+
+#### How to compile and run for Ticket Price Project
+
+```bash
+g++ -std=c++20 -Wall -Wextra main.cpp -o main
+./main
+```
+
+On Windows, run `main.exe` instead of `./main`.
+
+#### Hints for Ticket Price Project
+
+- **Fallthrough on purpose.** A `case` with no code and no `break` runs straight into the next one. That is how `case 'r':` shares the code under `case 'R':`.
+- **Don't forget `break`.** Without it, the Regular price runs on into Premium and then VIP, and every seat ends up costing 650.
+- **`char` uses single quotes.** Write `case 'R':`, not `case "R":`.
+- **Order matters in the ladder.** It stops at the first true condition. Check `age < 3` first, then `age <= 12`, then `age < 60`.
+- **Multiply before dividing.** With `int`, `450 / 100 * 30` gives 120 because `450 / 100` is 4. `450 * 30 / 100` gives the correct 135.
+- **`return 1;` ends `main` early.** It tells the system the program stopped because of an error.
+
+#### Checklist before you submit for Ticket Price Project
+
+- [ ] Seat price and day name both use `switch`
+- [ ] Lowercase seat letters work through fallthrough
+- [ ] An invalid seat letter is caught by `default`
+- [ ] The age group uses an `if`, `else if`, `else` ladder
+- [ ] The weekend fee and senior offer use nested `if`
+- [ ] `saved` is declared inside the `if` (C++17 initializer)
+- [ ] All the test cases above give the right totals
+- [ ] The program compiles with `-Wall -Wextra` and shows no warnings
+
+#### Extra challenges for Ticket Price Project
+
+Try these when the main task works:
+
+1. Add a Student group (13 to 25) with 20% off.
+2. Make Tuesday a half-price day for everyone.
+3. Ask for a show time (1 = morning, 2 = evening) and add a 30 taka evening fee.
+4. Ask how many tickets the viewer wants and print the total for all of them.
+
+Made for the **Study With Anis** C++ course.
+YouTube: [@anisul-islam](https://www.youtube.com/@anisul-islam) · Facebook: [studywithanis](https://www.facebook.com/studywithanis)
 
 [Back to contents](#top)
 
