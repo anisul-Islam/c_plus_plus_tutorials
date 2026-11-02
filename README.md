@@ -425,7 +425,6 @@ This project uses only what you learned in Modules 1 to 4. You don't need loops,
 - Fallthrough: stacking `case 'r':` and `case 'R':` so both letters work
 - An `if`, `else if`, `else` ladder
 - Nested `if`
-- `if` with an initializer (C++17)
 - Checking input before using it
 
 #### The task for Ticket Price Project
@@ -458,7 +457,7 @@ Write a program that:
    - On Saturday and Sunday, everyone except babies pays a 50 taka weekend fee.
    - On weekdays, seniors get an extra 10% off.
 7. Works out the discount and total, then prints the ticket.
-8. Uses an `if` with an initializer to print how much the viewer saved.
+8. Uses an `if` with to print how much the viewer saved.
 
 #### Sample run for Ticket Price Project
 
@@ -525,8 +524,8 @@ int main() {
 
     // TODO 8: print the ticket like the sample output
 
-    // TODO 9: if (int saved = ...; saved > 0) print "You save ..."
-    //         else print "Full price ticket. Enjoy the movie!"
+      // TODO 9: find the saving, if saved > 0 print "You save ..."
+  //         else print "Full price ticket. Enjoy the movie!"
 
     return 0;
 }
