@@ -9,6 +9,10 @@ int main()
   /*
     Q1: count before starting? yes => for loop, no => move question number 2
     Q2: must run at least once? yes => do while loop, no => use while loop
+
+    for loop => tables, sum 1 to n, patterns
+    while loop => read until 0, sum of digits
+    do while loop => menus, ask until valid, play agin
   */
 
   /*
