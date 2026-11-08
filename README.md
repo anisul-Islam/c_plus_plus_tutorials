@@ -31,7 +31,7 @@ Work through them in order: each one uses only what you have learned up to that 
 | [**2.** Variables, Data Types and Input/Output](#m02-module) | [Variables, data types and input](#m02-assignment) | [Student registration card](#m02-project)                                                                                                                                                                                                             |
 | [**3.** Operators](#m03-module)                              | [Operators](#m03-assignment)                       | [Shop bill and change calculator](#m03-project)                                                                                                                                                                                                       |
 | [**4.** Conditional Statements](#m04-module)                 | [Decisions with if and switch](#m04-assignment)    | [Ticket Price Checker](#m04-project)                                                                                                                                                                                                                  |
-| [**5.** Loops](#m05-module)                                  | [Loops](#m05-assignment)                           | 5.1. [Number Analyzer](#project-5a--number-analyzer)<br>5.2. [Math Quiz with Scoreboard](#project-5b--math-quiz-with-scoreboard)                                                                                                                      |
+| [**5.** Loops](#m05-module)                                  | [Loops](#m05-assignment)                           | 5. [Number Analyzer](#project-5--number-analyzer)                                                                                                                                                                                                     |
 | [**6.** Arrays and Strings](#m06-module)                     | [Arrays and strings](#m06-assignment)              | [Student marks application](#m06-project)                                                                                                                                                                                                             |
 | [**7.** Functions](#m07-module)                              | [Functions](#m07-assignment)                       | [Guessing Game](#m07-project)                                                                                                                                                                                                                         |
 | [**8.** Pointers and Memory](#m08-module)                    | [Pointers and memory](#m08-assignment)             | [Dynamic array class that grows](#m08-project)                                                                                                                                                                                                        |
@@ -614,7 +614,7 @@ Seven tasks with `for`, `while` and `do-while` loops: sums, factorial, digits, p
 
 <a id="m05-project"></a>
 
-### Project 5A : Number Analyzer
+### Project 5 : Number Analyzer
 
 **Course:** C++ Programming, Module 5 (Loops)
 **Level:** Beginner
@@ -766,165 +766,6 @@ int main() {
 2. Print the largest and smallest digit.
 3. Check for strong numbers, where the sum of the digit factorials equals the number (145 = 1! + 4! + 5!).
 4. Print the binary form using `% 2` and `/ 2`.
-
----
-
-### Project 5B : Math Quiz with Scoreboard
-
-**Course:** C++ Programming, Module 5 (Loops)
-**Level:** Beginner
-**Time:** 60 to 90 minutes
-
-A 10-question math quiz with three levels, two tries per question, a streak bonus, a grade and a play-again option.
-
-#### What you will practise in Math Quiz
-
-- `do-while` for "Play again?"
-- `while` for checking input
-- `for` with `break` for limited tries
-- `switch` to build different kinds of questions
-- Random numbers with `rand()` and `srand()`
-- Counters and a best score kept across games
-
-#### The rules in Math Quiz
-
-1. Ask for a level: 1 = Easy, 2 = Medium, 3 = Hard. Keep asking until the answer is 1, 2 or 3.
-
-   | Level  | Operators     | Numbers                               |
-   | ------ | ------------- | ------------------------------------- |
-   | Easy   | + and -       | 1 to 20                               |
-   | Medium | +, - and x    | 1 to 40 (x uses 1 to 12)              |
-   | Hard   | +, -, x and / | 1 to 60 (x and / use tables up to 12) |
-
-2. Ask 10 questions. The answer to a minus question is never negative, and division is always exact.
-3. Each question allows 2 tries: 10 points for the first try, 5 for the second. After two wrong tries, show the answer.
-4. **Streak:** from the 3rd correct answer in a row, each correct answer adds +2. A wrong question resets the streak to 0.
-5. At the end, show correct answers out of 10 with the percentage, the score, the best streak and a grade (A+ 80%+, A 70%+, B 60%+, C 50%+, otherwise F).
-6. Keep the best score across games and print `You beat your best score!` when a game beats it.
-7. Ask `Play again? (y/n)`.
-
-#### Sample run in Math Quiz
-
-This run uses `srand(42)` and the g++ compiler. Other compilers can give different questions for the same seed.
-
-```
-=== Math Quiz ===
-Level (1 = Easy, 2 = Medium, 3 = Hard): 2
-Q1: 21 + 2 = 23
-  Correct!
-Q2: 13 + 39 = 52
-  Correct!
-Q3: 21 - 12 = 9
-  Correct! Streak 3 (+2 bonus)
-Q4: 7 x 12 = 82
-  Not quite, one more try.
-Q4: 7 x 12 = 84
-  Correct! Streak 4 (+2 bonus)
-Q5: 25 + 17 = 42
-  Correct! Streak 5 (+2 bonus)
-Q6: 5 x 1 = 5
-  Correct! Streak 6 (+2 bonus)
-Q7: 20 + 28 = 50
-  Not quite, one more try.
-Q7: 20 + 28 = 47
-  The answer was 48
-Q8: 10 + 34 = 44
-  Correct!
-Q9: 20 + 10 = 30
-  Correct!
-Q10: 22 - 19 = 3
-  Correct! Streak 3 (+2 bonus)
-
-Correct: 9/10 (90%)
-Score: 95, best streak: 6
-Grade: A+
-Best score so far: 95
-
-Play again? (y/n): n
-
-Thanks for playing!
-```
-
-How the score adds up: 8 first-try answers × 10 = 80, one second-try answer = 5, and five streak bonuses × 2 = 10, for a total of 95.
-
-#### Starter code in Math Quiz
-
-```cpp
-#include <iostream>
-#include <cstdlib>
-using namespace std;
-
-int main() {
-    srand(42);              // same questions each run; use srand(time(0)) with <ctime> for new ones
-    int bestScore = 0;
-    char again;
-
-    do {
-        int level;
-        // TODO 1: ask for the level, and use a while loop to keep asking until it is 1 to 3
-
-        int score = 0, correct = 0, streak = 0, bestStreak = 0;
-
-        for (int q = 1; q <= 10; q++) {
-            int op = rand() % (level + 1);
-            int a, b, answer;
-            char sign;
-            // TODO 2: switch (op) to build a +, -, x or / question
-            //         minus: make b <= a; divide: a = b * answer
-
-            // TODO 3: for loop with 2 tries; on a right answer add 10 or 5 and break
-
-            // TODO 4: update correct, streak, bestStreak, and add the +2 bonus from streak 3
-        }
-
-        // TODO 5: print correct/10, percentage, score, best streak and the grade
-
-        // TODO 6: update bestScore and print "You beat your best score!"
-
-        cout << "\nPlay again? (y/n): ";
-        cin >> again;
-    } while (again == 'y' || again == 'Y');
-
-    cout << "Thanks for playing!" << endl;
-    return 0;
-}
-```
-
-#### Hints in Math Quiz
-
-- **`rand() % 20 + 1`** gives 1 to 20. Without `+ 1` you can get 0.
-- **Where variables live matters.** Put `score` and `streak` inside the `do` block so they reset every game, and `bestScore` outside it so it survives replays.
-- **Use `break`** so a right answer doesn't ask a second time.
-- **Exact division:** pick `b` and `answer` first, then set `a = b * answer`.
-
-#### Checklist in Math Quiz
-
-- [ ] The level is checked with a `while` loop
-- [ ] The game repeats with `do-while`
-- [ ] Two tries per question, stopping early with `break`
-- [ ] The streak bonus and best streak are correct
-- [ ] The best score is kept across replays
-- [ ] No arrays and no functions
-- [ ] Compiles with `-Wall -Wextra` and shows no warnings
-
-#### Extra challenges in Math Quiz
-
-1. Add a Hard-only power question (2 to the power of 1 to 10).
-2. Let the user choose how many questions to answer.
-3. End the game early after 3 wrong answers in a row.
-4. Show how long the quiz took using `time(0)` from `<ctime>`.
-
-#### How to compile and run in Math Quiz
-
-```bash
-g++ -std=c++20 -Wall -Wextra main.cpp -o main
-./main
-```
-
----
-
-Made for the **Study With Anis** C++ course.
-YouTube: [@anisul-islam](https://www.youtube.com/@anisul-islam) · Facebook: [studywithanis](https://www.facebook.com/studywithanis)
 
 [Back to contents](#top)
 
